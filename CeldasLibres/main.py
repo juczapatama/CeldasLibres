@@ -1,4 +1,7 @@
-from flask import Flask , render_template,request
+from flask import Flask, render_template,request
+from config import Config
+
+from forms import CrearUsuario
 #import mysql.connector
 #import MySQLdb
 #from flask_bootstrap import Bootstrap
@@ -6,6 +9,8 @@ from flask import Flask , render_template,request
 #conexion = mysql.connector.connect(host="3.90.223.62",port="3306",user="app", password="VguGqXru53BV8kIW" , database="celdas_libres")
 #conexcion = MySQLdb.connect(host="3.90.223.62",port=3306,user="app",passwd="VguGqXru53BV8kIW",db="celdas_libres")
 app = Flask(__name__)
+app.config.from_object(Config)
+
 @app.route('/')
 def index():
     return render_template('home.html')
@@ -13,7 +18,10 @@ def index():
 
 @app.route('/crearUsuario')
 def crear_usuario():
-    return render_template('crear_usuario.html')
+    form = CrearUsuario()
+    if request.method == 'POST' and form.validate_on_submit():
+        pass # Crear usuario y guardar en la BD
+    return render_template('crear_usuario.html', title='Registrarme', form=form)
 
 
 @app.route('/login',  methods=['POST', 'GET'])
