@@ -17,9 +17,9 @@ Proyecto Scrum - Ing. Requisitos
 - Carlos Andrés Castaño Carrasquilla	caacastanoca@unal.edu.co
 - Mateo Zuluaga Giraldo	              mzuluagag@unal.edu.co
 - Carlos Alejandro Torres Albarracín	caatorresal@unal.edu.co
-- Victor Andres Cuello Perez	        vacuellop@unal.edu.co
-### Frontend
 - Juan Pablo Posada Torres	  jpposadat@unal.edu.co
+### Frontend
+- Victor Andres Cuello Perez	        vacuellop@unal.edu.co
 - Juan Felipe Valencia	      jufvalenciaca@unal.edu.co
 - Santiago Quintero Valencia	saquinterova@unal.edu.co
 - Juan Camilo Zapata Macías	  juczapatama@unal.edu.co
