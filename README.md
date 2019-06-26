@@ -33,8 +33,7 @@ Se recomienda crear un virtualenv e instalar ahí todas las dependencias del pro
 pip install -r requirements.txt
 ```
 
-Siempre que instalen o vayan a usar una nueva librería usar el comando
+Siempre que instalen o vayan a usar una nueva librería usar el siguiente comando para agregar la librería a las dependencias.
 ```
 pip freeze > requirements.txt
 ```
-para agregar la librería a la dependencias.
