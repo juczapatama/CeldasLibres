@@ -17,9 +17,9 @@ Proyecto Scrum - Ing. Requisitos
 - Carlos Andrés Castaño Carrasquilla	caacastanoca@unal.edu.co
 - Mateo Zuluaga Giraldo	              mzuluagag@unal.edu.co
 - Carlos Alejandro Torres Albarracín	caatorresal@unal.edu.co
-- Juan Pablo Posada Torres	  jpposadat@unal.edu.co
+- Juan Pablo Posada Torres	          jpposadat@unal.edu.co
 ### Frontend
-- Victor Andres Cuello Perez	        vacuellop@unal.edu.co
+- Victor Andres Cuello Perez	vacuellop@unal.edu.co
 - Juan Felipe Valencia	      jufvalenciaca@unal.edu.co
 - Santiago Quintero Valencia	saquinterova@unal.edu.co
 - Juan Camilo Zapata Macías	  juczapatama@unal.edu.co
@@ -27,20 +27,14 @@ Proyecto Scrum - Ing. Requisitos
 ## Tutorial uso Git
 https://rogerdudler.github.io/git-guide/index.es.html
 
-Roles
-
-
 ## Instalar librerias
 Se recomienda crear un virtualenv e instalar ahí todas las dependencias del proyecto.
-
 ```
 pip install -r requirements.txt
 ```
 
 Siempre que instalen o vayan a usar una nueva librería usar el comando
-
 ```
 pip freeze > requirements.txt
 ```
-
-para agregar la librería a la dependencias
+para agregar la librería a la dependencias.
