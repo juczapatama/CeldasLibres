@@ -40,7 +40,7 @@ pip install -r requirements.txt
 Siempre que instalen o vayan a usar una nueva librería usar el comando
 
 ```
-pip freeze -r > requirements.txt
+pip freeze > requirements.txt
 ```
 
 para agregar la librería a la dependencias
