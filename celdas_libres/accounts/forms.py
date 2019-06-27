@@ -29,10 +29,10 @@ class SignUpForm(UserCreationForm):
         )
     )
     # Username es con lo que se va a logear, que en este caso lo vamos a tratar como la identificacion
-    username = forms.EmailField(
+    username = forms.CharField(
         label='Identificacion', required=True,
-        widget=forms.EmailInput(
-            attrs={'class': 'form-control', 'placeholder': 'Correo electrónico'}
+        widget=forms.TextInput(
+            attrs={'class': 'form-control'}
         )
     )
     password1 = forms.CharField(
@@ -64,11 +64,37 @@ class SignUpForm(UserCreationForm):
             ('CE', 'Cédula de extranjería'),
         ]
     )
-    nacionalidad = forms.CharField(max_length=15)
-    fecha_nacimiento = forms.DateField(input_formats=['%d/%m/%Y'])
-    telefono = forms.CharField(max_length=15)
-    celular = forms.CharField(max_length=15)
-    direccion = forms.CharField(max_length=30)
+    nacionalidad = forms.CharField(max_length=15, required=False,
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control',
+                }
+        ))
+    fecha_nacimiento = forms.DateField(input_formats=['%d/%m/%Y'],
+    required=False,
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control',
+                }
+        ))
+    telefono = forms.CharField(max_length=15, required=False,
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control',
+                }
+        ))
+    celular = forms.CharField(max_length=15, required=False,
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control',
+                }
+        ))
+    direccion = forms.CharField(max_length=30, required=False,
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control',
+                }
+        ))
 
     class Meta:
         model = CustomUser
