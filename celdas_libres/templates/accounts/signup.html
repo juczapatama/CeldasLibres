@@ -34,6 +34,7 @@
                 {{ form.tipo_identificacion }}
               </div>
               <div class="col-md-6">
+                <label>Identificacion *</label>
                 {{ form.username }}
               </div>
             </div>
@@ -41,70 +42,59 @@
           <div class="form-group">
               <div class="form-row">
                 <div class="col-md-6">
+                  <label>Contraseña *</label>
                   {{ form.password1 }}
                 </div>
                 <div class="col-md-6">
+                  <label>Confirmar contraseña *</label>
                   {{ form.password2 }}
                 </div>
               </div>
             </div>
           <div class="form-group">
-            <div class="form-label-group">
-              {{ form.nombre1 }}
-            </div>
+            <label>Primer nombre *</label>
+            {{ form.nombre1 }}
           </div>
           <div class="form-group">
-            <div class="form-label-group">
-                {{ form.nombre2 }}
-            </div>
+            <label>Segundo nombre</label>
+            {{ form.nombre2 }}
           </div>
           <div class="form-group">
-            <div class="form-label-group">
-                {{ form.apellido1 }}
-            </div>
+            <label>Primer apellido *</label>
+            {{ form.apellido1 }}
           </div>
           <div class="form-group">
-            <div class="form-label-group">
-                {{ form.apellido2 }}
-            </div>
+            <label>Segundo apellido *</label>
+            {{ form.apellido2 }}
           </div>
           <div class="form-group">
-            <div class="form-label-group">
-                {{ form.direccion }}
-            </div>
+            <label>Direccion *</label>
+            {{ form.direccion }}
           </div>
           <div class="col-md-6">
-                <div class="form-label-group">
-                    {{ form.telefono }}
-                </div>
+                <label>Telefono fijo *</label>
+                {{ form.telefono }}
               </div>
               <div class="col-md-6">
-                <div class="form-label-group">
-                    {{ form.celular }}
-                </div>
+                <label>Telefono celular *</label>
+                {{ form.celular }}
               </div>
               <div class="col-md-6">
-                <div class="form-label-group">
-                    {{ form.fecha_nacimiento }}
-                </div>
+                <label>Fecha de nacimiento *</label>
+                {{ form.fecha_nacimiento }}
               </div>
             </div>
             <div class="form-group">
-            <div class="form-label-group">
-              {{ form.email }}
-            </div>
+            <label>Correo electrónico *</label>
+            {{ form.email }}
           </div>
            <div class="form-group">
-            <div class="form-label-group">
-              {{ form.nacionalidad }}
-            </div>
+            <label>Nacionalidad *</label>
+            {{ form.nacionalidad }}
           </div>
           <button type="submit" class="btn btn-primary btn-block">Registrar</button>
           </div>
         </form>
-        <div class="text-center">
-          <a class="d-block small mt-3" href="login.html">Iniciar Sesión</a>
-        </div>
       </div>
     </div>
   </div>
