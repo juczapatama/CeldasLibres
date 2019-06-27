@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Crear tarifa{% endblock title %}
+
+{% block content %}
+  <div class="container">
+    <div class="card card-register mx-auto mt-5">
+      <div class="card-header">Ingreso de Tarifas</div>
+      <div class="card-body">
+        <form method="POST">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="Pnombre">Año</label>
+            {{ form.anno }}
+          </div>
+          <div class="form-group">
+            <label for="Pnombre">Tipo vehiculo</label>
+            {{ form.tipo_vehiculo }}
+          </div>
+          <div class="form-group">
+            <label for="Papell">Precio hora</label>
+            {{ form.por_hora }}
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Crear tarifa</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
