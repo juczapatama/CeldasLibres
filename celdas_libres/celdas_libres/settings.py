@@ -82,12 +82,12 @@ WSGI_APPLICATION = 'celdas_libres.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'celdas_libres',
         'USER': 'celdas_libres',
         'PASSWORD': 'celdaslibres123',
-        'HOST': 'celdas-libres-dev.ccsjuerxrddm.us-east-2.rds.amazonaws.com',
-        'PORT': '3306',
+        'HOST': 'celdas-libres-db.ccsjuerxrddm.us-east-2.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
