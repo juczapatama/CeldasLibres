@@ -1,10 +1,10 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import CustomUser
 
 
 class SignUpForm(UserCreationForm):
-    nombre1 = forms.CharField(
+    first_name = forms.CharField(
         label='Primer nombre', max_length=50, required=True,
         widget=forms.TextInput(
             attrs={'class': 'form-control', 'placeholder': 'Pepito', 'autofocus': 'autofocus'}
@@ -16,7 +16,7 @@ class SignUpForm(UserCreationForm):
             attrs={'class': 'form-control', 'placeholder': 'Javier', 'autofocus': 'autofocus'}
         )
     )
-    apellido1 = forms.CharField(
+    last_name = forms.CharField(
         label='Primer apellidos', max_length=50, required=True,
         widget=forms.TextInput(
             attrs={'class': 'form-control', 'placeholder': 'Perez'}
@@ -75,6 +75,7 @@ class SignUpForm(UserCreationForm):
         widget=forms.TextInput(
             attrs={
                 'class': 'form-control',
+                'placeholder': 'dd/mm/aaaa'
                 }
         ))
     telefono = forms.CharField(max_length=15, required=False,
@@ -93,15 +94,31 @@ class SignUpForm(UserCreationForm):
         widget=forms.TextInput(
             attrs={
                 'class': 'form-control',
-                'placeholder': 'dd/mm/aaaa'
                 }
         ))
 
     class Meta:
         model = CustomUser
         fields = [
-            'nombre1', 'nombre2', 'apellido1', 'apellido2', 'username',
+            'first_name', 'nombre2', 'last_name', 'apellido2', 'username',
             'password1', 'password2', 'email', 'tipo_identificacion',
             'nacionalidad', 'fecha_nacimiento', 'telefono', 'celular',
             'direccion',
             ]
+
+class LoginForm(AuthenticationForm):
+    username = forms.CharField(
+        label='Identificacion', required=True,
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control',
+                'autofocus': 'autofocus'
+                }
+        )
+    )
+    password = forms.CharField(
+        label='Contraseña', required=True,
+        widget=forms.PasswordInput(
+            attrs={'class': 'form-control', 'placeholder': 'Contraseña'}
+        )
+    )
