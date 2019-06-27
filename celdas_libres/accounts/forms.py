@@ -93,6 +93,7 @@ class SignUpForm(UserCreationForm):
         widget=forms.TextInput(
             attrs={
                 'class': 'form-control',
+                'placeholder': 'dd/mm/aaaa'
                 }
         ))
 
