@@ -10,14 +10,11 @@
 
   <title>{% block title %}{% endblock title %}</title>
 
-  <!-- BOOTSTRAP 4 -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-  <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  {% load static %}
+  <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
 
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin.css" rel="stylesheet">
+  <link href="{% static 'css/sb-admin.css' %}" rel="stylesheet">
 
 </head>
 
@@ -37,25 +34,25 @@
             <a class="nav-link" href="/">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="login.html">Iniciar Sesión</a>
+            <a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="signup.html">Registrarse</a>
+            <a class="nav-link" href="{% url 'signup' %}">Registrarse</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="tarifas.html">Tarifas</a>
+            <a class="nav-link" href="url 'tarifas' ">Tarifas</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-
+  {% block content %}{% endblock content %}
   <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
 
 </body>
 </html>
