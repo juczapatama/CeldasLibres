@@ -30,3 +30,9 @@ class CrearTarifaForm(forms.ModelForm):
                 }
             )
         }
+
+
+class EntradaVehiculoForm(forms.ModelForm):
+    pass
+    # Formulario para el registro de entrada de vehiculos
+    # Ver modelo para los campos

@@ -10,22 +10,10 @@ class SignUpForm(UserCreationForm):
             attrs={'class': 'form-control', 'placeholder': 'Pepito', 'autofocus': 'autofocus', 'id': '2dasd'}
         )
     )
-    nombre2 = forms.CharField(
-        label='Segundo nombre', max_length=50, required=False,
-        widget=forms.TextInput(
-            attrs={'class': 'form-control', 'placeholder': 'Javier', 'autofocus': 'autofocus'}
-        )
-    )
     last_name = forms.CharField(
         label='Primer apellidos', max_length=50, required=True,
         widget=forms.TextInput(
             attrs={'class': 'form-control', 'placeholder': 'Perez'}
-        )
-    )
-    apellido2 = forms.CharField(
-        label='Segundo apellidos', max_length=50, required=True,
-        widget=forms.TextInput(
-            attrs={'class': 'form-control', 'placeholder': 'Lopez'}
         )
     )
     # Username es con lo que se va a logear, que en este caso lo vamos a tratar como la identificacion
@@ -61,7 +49,7 @@ class SignUpForm(UserCreationForm):
         choices=[
             ('TI', 'Tarjeta de identidad'),
             ('CC', 'Cédula de ciudadanía'),
-            ('CE', 'Cédula de extranjería'),
+            ('PS', 'Pasaporte'),
         ]
     )
     nacionalidad = forms.CharField(max_length=15, required=False,
@@ -100,7 +88,7 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = CustomUser
         fields = [
-            'first_name', 'nombre2', 'last_name', 'apellido2', 'username',
+            'first_name', 'last_name', 'username',
             'password1', 'password2', 'email', 'tipo_identificacion',
             'nacionalidad', 'fecha_nacimiento', 'telefono', 'celular',
             'direccion',

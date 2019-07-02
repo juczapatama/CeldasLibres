@@ -14,8 +14,8 @@ class CustomUserAdmin(UserAdmin):
 
 class UsuarioAdmin(admin.ModelAdmin):
     model = Usuario
-    list_display = ('id', 'user')
-
+    list_display = ('user', 'identificacion', 'tipo_identificacion',
+            'nacionalidad', 'fecha_nacimiento', 'telefono', 'celular', 'direccion')
 
 admin.site.register(CustomUser, CustomUserAdmin)
 admin.site.register(Usuario, UsuarioAdmin)
