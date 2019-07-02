@@ -7,7 +7,7 @@ class SignUpForm(UserCreationForm):
     first_name = forms.CharField(
         label='Primer nombre', max_length=50, required=True,
         widget=forms.TextInput(
-            attrs={'class': 'form-control', 'placeholder': 'Pepito', 'autofocus': 'autofocus'}
+            attrs={'class': 'form-control', 'placeholder': 'Pepito', 'autofocus': 'autofocus', 'id': '2dasd'}
         )
     )
     nombre2 = forms.CharField(

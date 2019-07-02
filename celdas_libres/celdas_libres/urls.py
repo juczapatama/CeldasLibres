@@ -23,7 +23,7 @@ urlpatterns = [
     path('', core_views.home, name='home'),
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
-    path('accounts/', include('parqueaderos.urls')),
+    path('parqueaderos/', include('parqueaderos.urls')),
 ]
 
 if settings.DEBUG:
