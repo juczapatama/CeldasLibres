@@ -14,9 +14,9 @@ class CustomUser(AbstractUser):
 
 class Usuario(models.Model):
     user = models.OneToOneField(
-        CustomUser, on_delete=models.CASCADE, related_name='usuario', null=True
+        CustomUser, on_delete=models.CASCADE, related_name='usuario', primary_key=True, default=0
     )
-    identificacion = models.CharField(max_length=15, primary_key=True, default=default_id)
+    identificacion = models.CharField(max_length=15)
     tipo_identificacion = models.CharField(max_length=15, null=True)
     nacionalidad = models.CharField(max_length=20, null=True)
     fecha_nacimiento = models.DateField(null=True)
@@ -36,4 +36,5 @@ def create_user_profile(sender, instance, created, *args, **kwargs):
 
 @receiver(post_save, sender=CustomUser)
 def save_user_profile(sender, instance, *args, **kwargs):
+    instance.usuario.identificacion = instance.username
     instance.usuario.save()
