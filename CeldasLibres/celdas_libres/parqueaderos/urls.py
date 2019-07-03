@@ -1,10 +1,10 @@
 from django.urls import path
 
-from .views import CrearTarifa, VerTarifas, EntradaVehiculo
+from .views import CrearTarifa, VerTarifas, CrearEntradaVehiculo, VerIngresados
 
 urlpatterns = [
     path('crear_tarifa/', CrearTarifa.as_view(), name='crear_tarifa'),
     path('tarifas/', VerTarifas.as_view(), name='tarifas'),
-    path('ingresar-vehiculo/', EntradaVehiculo.as_view(), name='ingresar-vehiculo'),
-    # Aca deberia ir la url para el registro de entrada de los vehiculos
+    path('ingresar-vehiculo/', CrearEntradaVehiculo.as_view(), name='ingresar-vehiculo'),
+    path('vehiculos-ingresados/', VerIngresados.as_view(), name='vehiculos-ingresados'),
 ]

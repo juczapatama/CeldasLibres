@@ -13,15 +13,12 @@
             </tr>
         </thead>
         <tbody>
-            {% for tarifa in tarifas_list %}
-                {% now "Y" as current %}
-                {% ifequal tarifa.anno|stringformat:'i' current %}
+            {% for ingresado in ingresados_list %}
                 <tr>
-                    <th scope="row">{{ tarifa.anno }}</th>
-                    <td>{{ tarifa.tipo_vehiculo }}</td>
-                    <td>{{ tarifa.por_hora }}</td>
+                    <th scope="row">{{ ingresado.placa }}</th>
+                    <td>{{ ingresado.fecha_ingreso }}</td>
+                    <td>{{ ingresado.tarifa }}</td>
                 </tr>
-                {% endifequal %}
             {% endfor %}
         </tbody>
     </table>

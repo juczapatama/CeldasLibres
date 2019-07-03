@@ -15,7 +15,7 @@ class Tarifa(models.Model):
         ordering = ['anno']
 
     def __str__(self):
-        return str(self.anno)
+        return str(self.tipo_vehiculo) + ' ' + str(self.anno)
 
 class EntradaVehiculo(models.Model):
     tarifa = models.ForeignKey(Tarifa, on_delete=models.SET_NULL, null=True)
@@ -24,7 +24,7 @@ class EntradaVehiculo(models.Model):
 
     class Meta:
         unique_together = (('placa', 'fecha_ingreso'),)
-        verbose_name =  'tarifa'
+        verbose_name =  'entrada vehiculo'
         ordering = ['fecha_ingreso']
 
     def __str__(self):

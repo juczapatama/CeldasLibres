@@ -18,15 +18,21 @@ class CrearTarifa(CreateView):
     form_class = CrearTarifaForm
     success_url = reverse_lazy('tarifas')
 
-@method_decorator([login_required, staff_member_required], name='dispatch')
+@method_decorator([login_required], name='dispatch')
 class VerTarifas(ListView):
     model = Tarifa
     context_object_name = 'tarifas_list'
     template_name = 'parqueaderos/tarifas.html'
 
-@method_decorator([login_required, staff_member_required], name='dispatch')
-class EntradaVehiculo(CreateView):
+@method_decorator([login_required], name='dispatch')
+class CrearEntradaVehiculo(CreateView):
     model = EntradaVehiculo
     template_name = 'parqueaderos/ingresar_vehiculo.html'
     form_class = EntradaVehiculoForm
-    success_url = reverse_lazy('tarifas')
+    success_url = reverse_lazy('vehiculos-ingresados')
+
+@method_decorator([login_required], name='dispatch')
+class VerIngresados(ListView):
+    model = EntradaVehiculo
+    context_object_name = 'ingresados_list'
+    template_name = 'parqueaderos/ingresados_list.html'

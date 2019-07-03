@@ -43,10 +43,5 @@ class EntradaVehiculoForm(forms.ModelForm):
                 attrs={
                     'class': 'form-control'
                 }
-            ),
-            'fecha_ingreso': forms.Select(
-                attrs={
-                    'class': 'form-control'
-                }
             )
         }
