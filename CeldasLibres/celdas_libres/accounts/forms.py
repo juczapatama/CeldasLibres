@@ -2,7 +2,6 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import CustomUser, Usuario
 
-
 class SignUpForm(UserCreationForm):
     first_name = forms.CharField(
         label='Primer nombre', max_length=50, required=True,

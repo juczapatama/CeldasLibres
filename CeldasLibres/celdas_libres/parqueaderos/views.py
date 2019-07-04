@@ -10,7 +10,7 @@ from django.urls import reverse_lazy
 
 from .models import Tarifa, EntradaVehiculo
 from .forms import CrearTarifaForm, EntradaVehiculoForm
-
+from django.contrib import messages
 
 
 @method_decorator([login_required, staff_member_required], name='dispatch')
@@ -19,6 +19,14 @@ class CrearTarifa(CreateView):
     template_name = 'parqueaderos/crear_tarifa.html'
     form_class = CrearTarifaForm
     success_url = reverse_lazy('tarifas')
+    
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            messages.success(request, 'Tarifa creada')
+        return super(CrearTarifa, self).post(request, kwargs)
+
+
 
     def post(self, request, *args, **kwargs):
         anno = request.POST.get('anno')
@@ -53,10 +61,18 @@ class CrearEntradaVehiculo(CreateView):
     form_class = EntradaVehiculoForm
     success_url = reverse_lazy('vehiculos-ingresados')
 
+
     def get_context_data(self, **kwargs):
         context = super(CrearEntradaVehiculo, self).get_context_data(**kwargs)
         context['tarifas'] = Tarifa.objects.filter(anno=datetime.now().year)
         return context
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            messages.success(request, 'Vehículo ingresado')
+        return super(CrearEntradaVehiculo, self).post(request, kwargs)
+
 
 @method_decorator([login_required], name='dispatch')
 class VerIngresados(ListView):

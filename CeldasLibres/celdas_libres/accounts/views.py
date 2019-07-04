@@ -3,12 +3,13 @@ from django.contrib.auth import login, authenticate
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
-
 from .forms import SignUpForm, UpdateUsuarioForm
 from .models import CustomUser, Usuario
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
+from django.views.generic.edit import CreateView
+from django.contrib import messages
 
 
 
@@ -17,6 +18,7 @@ class CrearUsuario(CreateView):
     model = CustomUser
     form_class = SignUpForm
     success_url =  reverse_lazy('home')
+
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
@@ -35,6 +37,8 @@ class CrearUsuario(CreateView):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
+                
+            messages.success(request, 'Registro exitoso')
             return redirect('home')
         return render(request, 'accounts/signup.html', {'form': form})
 
