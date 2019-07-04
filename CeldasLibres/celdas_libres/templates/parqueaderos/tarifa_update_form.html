@@ -1,21 +1,25 @@
 {% extends 'base.html' %}
 
-{% block title %}Iniciar sesión{% endblock title %}
+{% block title %}Modificar tarifa{% endblock title %}
 
 {% block content %}
   <div class="container">
-    <div class="card card-login mx-auto mt-5">
-      <div class="card-header">Ingreso de Usuario</div>
+    <div class="card card-register mx-auto mt-5">
+      <div class="card-header">Ingreso de Tarifas</div>
       <div class="card-body">
         <form method="POST">
           {% csrf_token %}
           <div class="form-group">
-            {{ form.username }}
-            <label for="inputEmail">Idenficacion</label>
+            <label for="Pnombre">Año</label>
+            {{ form.anno }}
           </div>
           <div class="form-group">
-            {{ form.password }}
-            <label for="inputPassword">Contraseña</label>
+            <label for="Pnombre">Tipo vehiculo</label>
+            {{ form.tipo_vehiculo }}
+          </div>
+          <div class="form-group">
+            <label for="Papell">Precio hora</label>
+            {{ form.por_hora }}
           </div>
           {% if form.errors %}
               {% for field in form %}
@@ -39,11 +43,9 @@
                   </div>
               {% endfor %}
           {% endif %}
-          <button type="submit" class="btn btn-warning btn-block">Iniciar sesion</button>
+          <button type="submit" class="btn btn-warning btn-block">Modificar tarifa</button>
+          </div>
         </form>
-        <div class="text-center">
-          <!--<a class="d-block small mt-3" href="{% url 'signup' %}">Registrarme</a>-->
-        </div>
       </div>
     </div>
   </div>

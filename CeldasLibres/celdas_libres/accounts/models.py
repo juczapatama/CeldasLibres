@@ -20,8 +20,8 @@ class Usuario(models.Model):
     tipo_identificacion = models.CharField(max_length=15, null=True)
     nacionalidad = models.CharField(max_length=20, null=True)
     fecha_nacimiento = models.DateField(null=True)
-    telefono = models.PositiveIntegerField(null=True)
-    celular = models.PositiveIntegerField(null=True)
+    telefono = models.BigIntegerField(null=True)
+    celular = models.BigIntegerField(null=True)
     direccion = models.CharField(max_length=50, null=True)
 
     def __str__(self):

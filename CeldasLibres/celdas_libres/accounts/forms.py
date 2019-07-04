@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from .models import CustomUser
+from .models import CustomUser, Usuario
 
 
 class SignUpForm(UserCreationForm):
@@ -110,3 +110,37 @@ class LoginForm(AuthenticationForm):
             attrs={'class': 'form-control', 'placeholder': 'Contraseña'}
         )
     )
+
+class UpdateUsuarioForm(forms.ModelForm):
+    class Meta:
+        model = Usuario
+        fields = ['nacionalidad', 'fecha_nacimiento',
+                  'telefono', 'celular', 'direccion']
+        widgets = {
+            'nacionalidad': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    }
+            ),
+            'fecha_nacimiento': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'dd/mm/aaaa'
+                    }
+            ),
+            'telefono': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    }
+            ),
+            'celular': forms.TextInput(
+                    attrs={
+                        'class': 'form-control',
+                        }
+                ),
+            'direccion': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    }
+            )
+        }

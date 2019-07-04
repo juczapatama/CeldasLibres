@@ -1,5 +1,7 @@
+from datetime import datetime
+
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
@@ -18,11 +20,31 @@ class CrearTarifa(CreateView):
     form_class = CrearTarifaForm
     success_url = reverse_lazy('tarifas')
 
+    def post(self, request, *args, **kwargs):
+        anno = request.POST.get('anno')
+        tipo_vehiculo = request.POST.get('tipo_vehiculo')
+        for tarifa in Tarifa.objects.all():
+            if (tarifa.anno, tarifa.tipo_vehiculo) == (int(anno), tipo_vehiculo):
+                tarifa.delete()
+        return super(CrearTarifa, self).post(request, *args, **kwargs)
+
 @method_decorator([login_required], name='dispatch')
 class VerTarifas(ListView):
     model = Tarifa
     context_object_name = 'tarifas_list'
     template_name = 'parqueaderos/tarifas.html'
+
+@method_decorator([login_required, staff_member_required], name='dispatch')
+class ModificarTarifa(UpdateView):
+    model = Tarifa
+    form_class = CrearTarifaForm
+    template_name_suffix = '_update_form'
+    success_url =  reverse_lazy('tarifas')
+
+@method_decorator([login_required, staff_member_required], name='dispatch')
+class EliminarTarifa(DeleteView):
+    model = Tarifa
+    success_url = reverse_lazy('tarifas')
 
 @method_decorator([login_required], name='dispatch')
 class CrearEntradaVehiculo(CreateView):
@@ -30,6 +52,11 @@ class CrearEntradaVehiculo(CreateView):
     template_name = 'parqueaderos/ingresar_vehiculo.html'
     form_class = EntradaVehiculoForm
     success_url = reverse_lazy('vehiculos-ingresados')
+
+    def get_context_data(self, **kwargs):
+        context = super(CrearEntradaVehiculo, self).get_context_data(**kwargs)
+        context['tarifas'] = Tarifa.objects.filter(anno=datetime.now().year)
+        return context
 
 @method_decorator([login_required], name='dispatch')
 class VerIngresados(ListView):

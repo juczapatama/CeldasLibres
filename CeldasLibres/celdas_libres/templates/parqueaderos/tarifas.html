@@ -10,6 +10,10 @@
                 <th scope="col">Año</th>
                 <th scope="col">Tipo vehiculo</th>
                 <th scope="col">Precio por hora</th>
+                {% if user.is_staff %}
+                <th scope="col">Modificar</th>
+                <th scope="col">Eliminar</th>
+                {% endif %}
             </tr>
         </thead>
         <tbody>
@@ -20,6 +24,14 @@
                     <th scope="row">{{ tarifa.anno }}</th>
                     <td>{{ tarifa.tipo_vehiculo }}</td>
                     <td>{{ tarifa.por_hora }}</td>
+                    {% if user.is_staff %}
+                    <td>
+                        <a href="{% url 'modificar-tarifa' tarifa.id %}">Modificar</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'eliminar-tarifa' tarifa.id %}">Eliminar</a>
+                    </td>
+                    {% endif %}
                 </tr>
                 {% endifequal %}
             {% endfor %}

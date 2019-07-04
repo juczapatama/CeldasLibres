@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Usuarios{% endblock title %}
+
+{% block content %}
+<div class="container pt-5 mt-3">
+    <table class="table table-secondary table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Identificador</th>
+                <th scope="col">Tipo identificacion</th>
+                <th scope="col">Fecha nacimiento</th>
+                <th scope="col">Telefono celular</th>
+                <th scope="col">Telefono fijo</th>
+                <th scope="col">Nacionalidad</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Modificar</th>
+                <th scope="col">Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuario in usuarios_list %}
+                {% if not usuario.user.is_staff %}
+                <tr>
+                    <th scope="row">{{ usuario.user }}</th>
+                    <td>{{ usuario.tipo_identificacion }}</td>
+                    <td>{{ usuario.fecha_nacimiento }}</td>
+                    <td>{{ usuario.celular }}</td>
+                    <td>{{ usuario.telefono }}</td>
+                    <td>{{ usuario.nacionalidad }}</td>
+                    <td>{{ usuario.direccion }}</td>
+                    <td>
+                        <a href="{% url 'modificar-usuario' usuario.user.id %}">Modificar</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'eliminar-usuario' usuario.user.id %}">Eliminar</a>
+                    </td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
