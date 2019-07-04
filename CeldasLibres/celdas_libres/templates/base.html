@@ -35,10 +35,10 @@
             <a class="nav-link" href="/">Inicio</a>
           </li>
           {% if user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link" href="{%url 'vehiculos-ingresados' %}">Vehiculos ingresados</a>
-          </li>
             {% if user.is_staff %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'signup' %}">Registrar Operario</a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="{%url 'crear_tarifa' %}">Crear tarifa</a>
               </li>
@@ -46,6 +46,9 @@
                 <a class="nav-link" href="{%url 'usuarios' %}">Usuarios</a>
               </li>
             {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'vehiculos-ingresados' %}">Vehiculos ingresados</a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="{%url 'ingresar-vehiculo' %}">Entrada vehiculo</a>
               </li>
@@ -59,9 +62,6 @@
           {% else %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'signup' %}">Registrarse</a>
           </li>
           {% endif %}
         </ul>

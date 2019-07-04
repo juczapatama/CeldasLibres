@@ -15,7 +15,8 @@ class Tarifa(models.Model):
         ordering = ['anno']
 
     def __str__(self):
-        return str(self.tipo_vehiculo).capitalize() + ' ' + str(self.anno) + ' por ' + str(self.por_hora) + ' h'
+        #+ ' ' + str(self.anno) + ' por ' + str(self.por_hora) + ' h'
+        return str(self.tipo_vehiculo).capitalize()
 
 class EntradaVehiculo(models.Model):
     tarifa = models.ForeignKey(Tarifa, on_delete=models.SET_NULL, null=True)

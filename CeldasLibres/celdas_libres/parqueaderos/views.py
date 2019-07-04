@@ -26,8 +26,6 @@ class CrearTarifa(CreateView):
             messages.success(request, 'Tarifa creada')
         return super(CrearTarifa, self).post(request, kwargs)
 
-
-
     def post(self, request, *args, **kwargs):
         anno = request.POST.get('anno')
         tipo_vehiculo = request.POST.get('tipo_vehiculo')
@@ -60,6 +58,7 @@ class CrearEntradaVehiculo(CreateView):
     template_name = 'parqueaderos/ingresar_vehiculo.html'
     form_class = EntradaVehiculoForm
     success_url = reverse_lazy('vehiculos-ingresados')
+    context_object_name = 'tarifas_list'
 
 
     def get_context_data(self, **kwargs):
