@@ -68,5 +68,23 @@
   <!-- Core plugin JavaScript-->
   <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+  {% for message in messages %}
+<script>
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top',
+        showConfirmButton: false,
+        showCloseButton: false,
+        timer: 3000
+    });
+    Toast.fire({
+        type: '{{ message.tags }}',
+        title: '{{ message }}'
+    })
+</script>
+{% endfor %}
+
 </body>
 </html>

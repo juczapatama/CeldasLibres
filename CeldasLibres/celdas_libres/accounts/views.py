@@ -5,7 +5,7 @@ from .forms import SignUpForm
 from .models import CustomUser
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
-
+from django.contrib import messages
 
 
 class SignUpView(CreateView):
@@ -13,6 +13,7 @@ class SignUpView(CreateView):
     model = CustomUser
     form_class = SignUpForm
     success_url =  reverse_lazy('home')
+
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
@@ -26,5 +27,6 @@ class SignUpView(CreateView):
             user.usuario.celular = form.cleaned_data['celular']
             user.usuario.direccion = form.cleaned_data['direccion']
             user.save()
+            messages.success(request, 'Registro exitoso')
             return redirect('home')
         return render(request, 'accounts/signup.html', {'form': form})
