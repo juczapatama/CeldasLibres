@@ -16,7 +16,7 @@
                 {{ form.placa }}
               </div>
               <div class="form-group">
-                <label for="Pnombre">Tarifa</label>
+                <label for="Pnombre">Tipo vehículo</label>
                 <select name="tarifa" required="" id="id_tarifa">
                     {% for tarifa in tarifas %}
                         <option value="{{ tarifa.id }}">{{ tarifa }}</option>

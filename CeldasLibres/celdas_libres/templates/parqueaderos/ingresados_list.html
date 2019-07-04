@@ -7,17 +7,17 @@
     <table class="table table-secondary table-striped">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">Año</th>
-                <th scope="col">Tipo vehiculo</th>
-                <th scope="col">Precio por hora</th>
+                <th scope="col">Placa</th>
+                <th scope="col">Fecha ingreso</th>
+                <th scope="col">Tarifa aplicable</th>
             </tr>
         </thead>
         <tbody>
             {% for ingresado in ingresados_list %}
                 <tr>
-                    <th scope="row">{{ ingresado.anno }}</th>
-                    <td>{{ ingresado.tipo_vehiculo }}</td>
-                    <td>{{ ingresado.por_hora }}</td>
+                    <th scope="row">{{ ingresado.placa }}</th>
+                    <td>{{ ingresado.fecha_ingreso }}</td>
+                    <td>{{ ingresado.tarifa }}</td>
                 </tr>
             {% endfor %}
         </tbody>
